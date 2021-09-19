@@ -1,0 +1,26 @@
+{
+  "name": "mercadopago",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StefanoQuiroz/MercadoPago-.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/StefanoQuiroz/MercadoPago-/issues"
+  },
+  "homepage": "https://github.com/StefanoQuiroz/MercadoPago-#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mercadopago": "^1.5.8"
+  }
+}
