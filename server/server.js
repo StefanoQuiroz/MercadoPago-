@@ -8,7 +8,8 @@ const cors = require('cors');
 const mercadopago = require ('mercadopago');
 // Agrega credenciales
 mercadopago.configure({
-  access_token: 'APP_USR-6144352613999705-091915-792c057ca3243f1576db188fce03b4fa-826916951'
+     
+    access_token: 'APP_USR-6144352613999705-091915-792c057ca3243f1576db188fce03b4fa-826916951'
 });
 
 app.use(express.json());
@@ -21,21 +22,19 @@ app.get("/api/checkout", (req, res) => {
     let preference = {
         items: [
         {
-            title: 'Mi producto',
-            unit_price: 100,
+            title: 'Pizza Hawaiana de tamaño familiar',
+            unit_price: 49.90,
             quantity: 1,
         }
         ]
     };
     
     mercadopago.preferences.create(preference)
-    .then(function(response){
+    .then((response) => {
     // Este valor reemplazará el string "<%= global.id %>" en tu HTML
     //    global.id = response.body.id;
     //Respuesta del servidor
-    }).catch(function(error){
-        console.log(error);
-    });
+    }).catch((error) => console.log(error));
 })
 
 app.listen(PORT, ()=>{
