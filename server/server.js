@@ -12,18 +12,20 @@ mercadopago.configure({
     access_token: 'APP_USR-6144352613999705-091915-792c057ca3243f1576db188fce03b4fa-826916951'
 });
 
+//Middleware parser reemplazará a body-parser
 app.use(express.json());
 app.use(express.urlencoded({extended:true}))
 app.use(cors({credentials: true, origin: 'http://localhost:3000'}))
 
-app.get("/api/checkout", (req, res) => {
+app.post("/api/checkout", (req, res) => {
     //res.send('<h1>Checkout</h1>');
     // Crea un objeto de preferencia
+    //Orden de compra que vamos enviarle a mercado pago
     let preference = {
         items: [
         {
-            title: 'Pizza Hawaiana de tamaño familiar',
-            unit_price: 49.90,
+            title: req.body.name,
+            unit_price: parseFloat(req.body.price),
             quantity: 1,
         }
         ]
@@ -34,6 +36,10 @@ app.get("/api/checkout", (req, res) => {
     // Este valor reemplazará el string "<%= global.id %>" en tu HTML
     //    global.id = response.body.id;
     //Respuesta del servidor
+        //console.log(response.body);
+        //res.send("checkout - test");
+        //redirecciona al checkout de mercado pago!
+        res.redirect(response.body.init_point)
     }).catch((error) => console.log(error));
 })
 

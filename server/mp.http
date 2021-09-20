@@ -9,4 +9,4 @@ Content-Type: application/json
 GET https://api.mercadopago.com/users/test_user?access_token=APP_USR-6144352613999705-091915-792c057ca3243f1576db188fce03b4fa-826916951
 
 #######
-GET http://localhost:8000/api/checkout
+POST http://localhost:8000/api/checkout
